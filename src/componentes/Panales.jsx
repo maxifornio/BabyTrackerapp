@@ -48,7 +48,7 @@ const Panales = () => {
     <div className='col coso'>
       <h3>Pañales</h3>
       <div className="card" style={{ width: "100%", height: "90%" }}>
-        <img src='../materiales/img/panal.jpg' className="card-img-top" alt="..." />
+        <img src='/panal.jpg' className="card-img-top" alt="Pañal" />
         <div className="card-body">
           <p className="card-text">
             Total de pañales cambiados en el dia: {panalesHoy.length}

@@ -48,7 +48,7 @@ const Biberones = () => {
     <div className='col coso'>
       <h3>Biberones</h3>
       <div className="card" style={{ width: "100%", height: "90%" }}>
-        <img src='../materiales/img/mamadera.jpg' className="card-img-top" alt="..." />
+        <img src='/mamadera.jpg' className="card-img-top" alt="Biberón" />
         <div className="card-body">
           <p className="card-text">
             Total de biberones ingeridos hoy: {biberonesHoy.length}
