@@ -16,7 +16,7 @@ const ListadoDiario = () => {
   }, [eventos])
 
   return (
-    <div className='col-6'>
+    <div className='col-12 col-sm-6'>
       <h2>Listado Diario</h2>
       <ul className="list-group" style={{ maxHeight: '220px', overflowY: 'auto', overflowX: 'hidden' }}>
         {eventosActuales.map(evento => <Evento key={evento.id} {...evento} />)}

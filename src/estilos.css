@@ -8,9 +8,8 @@
 
 html, body {
   background-color: #B0EAFF !important;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
-  overflow: hidden;
 }
 
 body{
@@ -38,7 +37,7 @@ body{
 }
 
 .fondo {
-  height: 470.5px;
+  min-height: 300px;
   background-color: #ffffff;
   border-radius: 14px;
   box-shadow: 0 2px 18px rgba(233, 30, 99, 0.08);
@@ -152,4 +151,32 @@ input[type='checkbox']:checked + .checkLabel {
 
 .zonaBiberon{
   background-color: #FFF5F8;
+}
+
+/*==Responsive==*/
+@media (max-width: 767px) {
+  .agregar input[type='text'] {
+    width: 100%;
+  }
+  .agregar input[type='button'] {
+    width: 100%;
+  }
+  .tarjeta {
+    padding: 12px;
+  }
+  .coso {
+    padding: 10px;
+  }
+  .contenido {
+    padding: 0 12px;
+    min-height: auto;
+  }
+  .menu {
+    height: auto;
+    padding: 12px 0;
+  }
+  .login-card {
+    padding: 32px 20px 24px !important;
+    margin: 0 12px;
+  }
 }

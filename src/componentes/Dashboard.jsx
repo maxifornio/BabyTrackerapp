@@ -33,7 +33,7 @@ const Dashboard = () => {
   const logout = () => { localStorage.clear(); navigate('/'); };
 
   return (
-    <div className="container text-center d-flex flex-column" style={{ height: '100vh', paddingTop: '2vh', paddingBottom: '2vh', overflow: 'hidden' }}>
+    <div className="container text-center d-flex flex-column" style={{ minHeight: '100vh', paddingTop: '2vh', paddingBottom: '2vh' }}>
       <div className="row align-items-center mb-2 flex-shrink-0" style={{ background: 'linear-gradient(135deg, #F8BBD9 0%, #FCE4EC 100%)', borderRadius: '14px', padding: '12px 20px' }}>
         <div className="col d-flex align-items-center gap-2">
           <span style={{ fontSize: '28px' }}>🍼</span>
@@ -54,19 +54,19 @@ const Dashboard = () => {
           </button>
         </div>
       </div>
-      <div className="row gx-2 mt-2 flex-shrink-0 align-items-stretch" style={{ paddingBottom: '20px' }}>
-        <div className="col-4 insertar d-flex">
+      <div className="row gx-2 mt-2 align-items-stretch" style={{ paddingBottom: '20px' }}>
+        <div className="col-12 col-md-4 insertar d-flex mb-2 mb-md-0">
           <Agregar />
         </div>
-        <div className="col-8 listado d-flex">
+        <div className="col-12 col-md-8 listado d-flex">
           <Listado />
         </div>
       </div>
-      <div className="row gx-2 flex-shrink-0">
-        <div className="col-8 d-flex">
+      <div className="row gx-2">
+        <div className="col-12 col-md-8 d-flex mb-2 mb-md-0">
           <Analisis />
         </div>
-        <div className="col-4 d-flex">
+        <div className="col-12 col-md-4 d-flex">
           <InformeEventos />
         </div>
       </div>

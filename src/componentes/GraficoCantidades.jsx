@@ -63,7 +63,7 @@ const GraficoCantidades = () => {
       const labelMapeada = categoriasConEventos.map(c => c.tipo);
 
   return (
-    <div className='col-6 white cantidades'> 
+    <div className='col-12 col-sm-6 white cantidades'>
     <section className="justify-content-center">
     <h2 className="text-center mb-3">
       Grafico de <span>Cantidades</span>

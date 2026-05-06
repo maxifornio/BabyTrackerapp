@@ -124,7 +124,7 @@ const Agregar = () => {
 
   return (
     <>
-      <section className="row justify-content-center p-5 coso">
+      <section className="row justify-content-center p-3 p-md-5 coso">
         <h2 className="text-center mb-3">
           Agregar <span>evento</span>
         </h2>
