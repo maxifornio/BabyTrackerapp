@@ -33,5 +33,5 @@ Brindar una herramienta simple e intuitiva para organizar la rutina del bebé, f
 🛠️ Tecnologías utilizadas
 ⚛️ React
 JavaScript (ES6+)
-CSS / Styled Components (o el que uses)
-LocalStorage (si guardás datos en el navegador)
+CSS
+LocalStorage
