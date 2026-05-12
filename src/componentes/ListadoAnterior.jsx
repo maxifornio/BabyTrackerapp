@@ -9,10 +9,13 @@ const ListadoAnterior = () => {
   const diaActual = new Date().setHours(0, 0, 0, 0);
 
   useEffect(() => {
-    setEventosViejos(eventos.filter(evt => {
-      const fechaEvento = parsearFecha(evt.fecha).setHours(0, 0, 0, 0); // parsearFecha maneja cualquier formato
-      return fechaEvento < diaActual;
-    }));
+    setEventosViejos(eventos
+      .filter(evt => {
+        const fechaEvento = parsearFecha(evt.fecha).setHours(0, 0, 0, 0);
+        return fechaEvento < diaActual;
+      })
+      .sort((a, b) => parsearFecha(b.fecha) - parsearFecha(a.fecha))
+    );
   }, [eventos])
 
   return (

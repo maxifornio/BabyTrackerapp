@@ -7,7 +7,7 @@ const Contenedor = () => {
 
   return (
     <div className={esAuthPage ? '' : 'container'}>
-      <main className='row'>
+      <main className={esAuthPage ? '' : 'row'}>
         <Outlet />
       </main>
     </div>

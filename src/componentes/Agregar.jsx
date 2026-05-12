@@ -20,9 +20,11 @@ const Agregar = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('datetime').setAttribute('max', today);
-    
+    const now = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    const maxValue = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
+    document.getElementById('datetime').setAttribute('max', maxValue);
+
     fetch("https://babytracker.develotion.com/categorias.php", {
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -42,10 +44,8 @@ const Agregar = () => {
       // Sin fecha manual → usar momento actual
       fechaFiltrada = moment().format('YYYY-MM-DD HH:mm:ss');
     } else {
-      // Con fecha del input type="date" → solo viene "YYYY-MM-DD"
-      // Le agregamos la hora actual para que no quede como medianoche UTC
-      const horaActual = moment().format('HH:mm:ss');
-      fechaFiltrada = `${fecha.current.value} ${horaActual}`;
+      // datetime-local devuelve "YYYY-MM-DDTHH:mm" → convertir a "YYYY-MM-DD HH:mm:00"
+      fechaFiltrada = fecha.current.value.replace('T', ' ') + ':00';
     }
     
     let datos = {
@@ -141,8 +141,7 @@ const Agregar = () => {
 
           <label htmlFor="datetime">Fecha y hora</label>
           <input
-            type="date"
-            placeholder="fecha y hora"
+            type="datetime-local"
             required=""
             id="datetime"
             ref={fecha}

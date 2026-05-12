@@ -2,8 +2,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { eliminarEvento, setUltimo } from "../features/eventosSlice";
 import { useEffect, useState } from "react";
 import { eliminarUltimoBiberon, setTiempoUltimoBiberon } from "../features/biberonSlice";
+import { parsearFecha } from "../utils/dateUtils";
 
-const Evento = ({id, detalle, idCategoria}) => {
+const Evento = ({id, detalle, idCategoria, fecha}) => {
     const dispatch = useDispatch();
     const categorias = useSelector(state => state.categorias.categorias)
     const [img, setImg] = useState('');
@@ -44,12 +45,25 @@ const Evento = ({id, detalle, idCategoria}) => {
     }
 
 
+    const fechaObj = parsearFecha(fecha);
+    const fechaFormateada = fechaObj
+        ? (() => {
+            const pad = n => String(n).padStart(2, '0');
+            return `${pad(fechaObj.getDate())}/${pad(fechaObj.getMonth()+1)} ${pad(fechaObj.getHours())}:${pad(fechaObj.getMinutes())}`;
+          })()
+        : '';
+
     return (
         <li className="list-group-item list-group-item-info">
             <img className="m-2" src={`https://babytracker.develotion.com/imgs/${img}.png`}/>
-            {detalle}
+            <div style={{ display: 'inline-flex', flexDirection: 'column', verticalAlign: 'middle' }}>
+                {fechaFormateada && (
+                    <span style={{ fontSize: '11px', color: '#C2185B', fontWeight: 600 }}>{fechaFormateada}</span>
+                )}
+                {detalle && <span>{detalle}</span>}
+            </div>
             <button className="m-2" id="boton" onClick={eliminar}>Eliminar</button>
-        </li> 
+        </li>
     )
 }
 
